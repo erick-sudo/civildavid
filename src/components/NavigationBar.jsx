@@ -7,20 +7,19 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { homes } from "../assets/images/apartments/apartments";
+import { cdn } from "../assets/cdn";
 
 export default function NavigationBar({ tabs = [] }) {
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const navBlurImage = `${cdn}/navbar/nav_blur.jpg`
 
   const [showNav, setShowNav] = useState(false);
-
-  const linearG = "bg-gradient-to-tl from-amber-800 via-amber-600 to-amber-950";
 
   return (
     <div className="sticky top-0 z-40">
       <div className="absolute inset-0 -z-10 opacity- blur-xl">
-        <img className="h-full w-full object-cover" src={homes[6]} />
+        <img className="h-full w-full object-cover" src={navBlurImage} />
       </div>
 
       {/* Larg Screen [md+] */}

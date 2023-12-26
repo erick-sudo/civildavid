@@ -1,14 +1,14 @@
 import React from "react";
-import { homes } from "../assets/images/apartments/apartments";
 import { TransitionClient } from "../lib/TransitionClient";
+import { cdn } from "../assets/cdn";
 
 export default function HeroSection() {
   const linearG = "bg-gradient-to-tr from-amber-700 via-gray-800 to-amber-700";
 
   return (
-    <div className="relative">
+    <div className="relative m-6 rounded overflow-hidden shadow shadow-black">
       <div className="absolute -z-20 inset-0">
-        <img className="w-full h-full object-cover" src={homes[8]} />
+        <img className="w-full h-full object-cover" src={`${cdn}/hero_section/hero1.jpg`} />
       </div>
       <div className="absolute bg-white/50 inset-0 -z-10"></div>
       <div className="pt-[3em] z-20">

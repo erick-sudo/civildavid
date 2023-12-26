@@ -2,9 +2,8 @@ import React, { useContext } from "react";
 import { ConvergeText } from "./ConvergeText";
 import Loop from "../lib/Loop";
 import { AppContext } from "./AppContext";
-import splash1 from "../assets/splash/splash1.png";
 import splash2 from "../assets/splash/splash2.png";
-import { homes } from "../assets/images/apartments/apartments";
+import { cdn } from "../assets/cdn";
 
 export function Launching() {
   const linearG = "from-amber-600 via-amber-900 to-amber-500 bg-gradient-to-tr";
@@ -37,17 +36,17 @@ export function Launching() {
             centerComponent={
               <div className="relative">
                 <div className="absolute left-0 right-0 -bottom-10 -top-10 bg-white">
-                <img
-                src={splash2}
-                alt=""
-                className="w-full h-full object-cover"
-              />
-              <img
-                src={homes[5]}
-                alt=""
-                className="absolute inset-0 w-full h-full object-cover"
-                style={{ mixBlendMode: "screen" }}
-              />
+                  <img
+                    src={splash2}
+                    alt=""
+                    className="w-full h-full object-cover"
+                  />
+                  <img
+                    src={`${cdn}/launch/l1.jpg`}
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-cover"
+                    style={{ mixBlendMode: "screen" }}
+                  />
                 </div>
               </div>
             }

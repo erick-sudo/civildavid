@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Pager from "../lib/Pager";
 import { StrokeText } from "../lib/StrokeText";
 import Loop from "../lib/Loop";
-import { testimonials } from "../assets/testimonials";
-import { team } from "../assets/team";
+import { testimonialImageAvatars, testimonials } from "../assets/testimonials";
+import { team, teamMembersAvatars } from "../assets/team";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRightLong,
@@ -15,20 +15,21 @@ import {
   faStarHalfAlt,
   faUserCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import { homes, streets } from "../assets/images/apartments/apartments";
 import Focus from "../lib/Focus";
 import { productImages, products } from "../assets/products";
 import { TransitionClient } from "../lib/TransitionClient";
 import { attractiveStatements } from "../assets/statements";
 import { serviceImages, services } from "../assets/services";
 import HeroSection from "./HeroSection";
+import { projects } from "../assets/projects";
 
 export default function Home() {
   const linearG = "bg-gradient-to-tl from-amber-800 via-amber-600 to-amber-900";
 
+  const projs = Object.keys(projects);
+
   return (
     <div className="flex flex-col gap-24 py-4">
-
       {/* Hero Section */}
       <HeroSection />
 
@@ -42,7 +43,7 @@ export default function Home() {
               padding={20}
               autoPlay={{
                 play: true,
-                interval: 5000,
+                interval: 10000,
               }}
               slidesClassName=""
               orientation="vertical"
@@ -122,7 +123,7 @@ export default function Home() {
               padding={20}
               spacing={10}
             >
-              {homes.slice(0, homes.length / 2).map((j, i) => (
+              {projs.slice(0, projs.length / 2).map((proj, i) => (
                 <div
                   className="border p-4 group rounded-xl border-amber-800 overflow-hidden h-[40vh] flex justify-center items-center duration-300"
                   key={i}
@@ -130,7 +131,7 @@ export default function Home() {
                   <div className="flex-grow rounded-xl overflow-hidden shadow shadow-black self-stretch">
                     <img
                       className="w-full h-full object-cover group-hover:scale-125 duration-500"
-                      src={j}
+                      src={projects[proj]["image"]}
                     />
                   </div>
 
@@ -143,7 +144,7 @@ export default function Home() {
                     <button
                       className={`px-6 rounded-[30px] -translate-x-[1rem] shadow-inner shadow-black ${linearG}`}
                     >
-                      {streets[i]}
+                      {proj}
                     </button>
                   </div>
 
@@ -160,7 +161,7 @@ export default function Home() {
               padding={20}
               spacing={10}
             >
-              {homes.slice(homes.length / 2).map((j, i) => (
+              {projs.slice(projs.length / 2).map((proj, i) => (
                 <div
                   className="border p-4 group rounded-xl border-amber-800 overflow-hidden h-[40vh] flex justify-center items-center duration-300"
                   key={i}
@@ -168,7 +169,7 @@ export default function Home() {
                   <div className="flex-grow rounded-xl overflow-hidden shadow shadow-black self-stretch">
                     <img
                       className="w-full h-full object-cover group-hover:scale-125 duration-500"
-                      src={j}
+                      src={projects[proj]["image"]}
                     />
                   </div>
 
@@ -181,7 +182,7 @@ export default function Home() {
                     <button
                       className={`px-6 rounded-[30px] -translate-x-[1rem] shadow-inner shadow-black ${linearG}`}
                     >
-                      {streets[i]}
+                      {proj}
                     </button>
                   </div>
 
@@ -209,7 +210,7 @@ export default function Home() {
                 padding={20}
                 spacing={10}
               >
-                {homes.slice(0, homes.length / 2).map((j, i) => (
+                {projs.slice(0, projs.length / 2).map((proj, i) => (
                   <div
                     className="border p-4 group rounded-xl border-amber-800 overflow-hidden h-[40vh] flex justify-center items-center duration-300"
                     key={i}
@@ -217,7 +218,7 @@ export default function Home() {
                     <div className="flex-grow rounded-xl overflow-hidden shadow shadow-black self-stretch">
                       <img
                         className="w-full h-full object-cover group-hover:scale-125 duration-500"
-                        src={j}
+                        src={projects[proj]["image"]}
                       />
                     </div>
 
@@ -230,7 +231,7 @@ export default function Home() {
                       <button
                         className={`px-6 rounded-[30px] -translate-x-[1rem] shadow-inner shadow-black ${linearG}`}
                       >
-                        {streets[i]}
+                        {proj}
                       </button>
                     </div>
 
@@ -354,7 +355,7 @@ export default function Home() {
                   <div className="h-48 w-48 rounded-full overflow-hidden shadow-md shadow-black">
                     <img
                       className="w-full h-full object-cover"
-                      src={member.image}
+                      src={teamMembersAvatars[member.name]}
                     />
                   </div>
                   <div className="p-4 flex flex-col items-center">
@@ -404,7 +405,7 @@ export default function Home() {
                         <div className="h-14 w-14">
                           <img
                             className="h-full w-full object-cover rounded-full shadow-lg shadow-black"
-                            src={testimonial.image}
+                            src={testimonialImageAvatars[testimonial.name]}
                           />
                         </div>
 
@@ -498,7 +499,7 @@ export default function Home() {
           padding={20}
           spacing={10}
         >
-          {homes.slice(0, homes.length / 2).map((j, i) => (
+          {projs.slice(0, projs.length / 2).map((proj, i) => (
             <div
               className="border p-4 group rounded-xl border-amber-800 overflow-hidden h-[40vh] flex justify-center items-center duration-300"
               key={i}
@@ -506,7 +507,7 @@ export default function Home() {
               <div className="flex-grow rounded-xl overflow-hidden shadow shadow-black self-stretch">
                 <img
                   className="w-full h-full object-cover group-hover:scale-125 duration-500"
-                  src={j}
+                  src={projects[proj]["image"]}
                 />
               </div>
 
@@ -519,7 +520,7 @@ export default function Home() {
                 <button
                   className={`px-6 rounded-[30px] -translate-x-[1rem] shadow-inner shadow-black ${linearG}`}
                 >
-                  {streets[i]}
+                  {proj}
                 </button>
               </div>
 

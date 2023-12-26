@@ -8,9 +8,9 @@ import {
   faSuitcase,
   faTools,
 } from "@fortawesome/free-solid-svg-icons";
-import { homes } from "../assets/images/apartments/apartments";
 import splash1 from "../assets/splash/splash1.png";
 import splash2 from "../assets/splash/splash2.png";
+import { cdn } from "../assets/cdn";
 
 export default function About() {
   const linearG = "bg-gradient-to-tr from-amber-950 via-amber-600 to-amber-950";
@@ -42,9 +42,9 @@ export default function About() {
       "We foster a collaborative culture, working closely with clients, partners, and our talented team to achieve shared goals.",
   };
 
-  let imageIdx = 0
+  let imageIdx = 1;
   const coreValuesImagePairs = Object.keys(coreValues).map((value, index) => {
-    imageIdx += 1
+    imageIdx += 1;
     const elements = [
       <div className="p-4 flex-grow">
         <div className="flex items-center gap-4">
@@ -74,7 +74,7 @@ export default function About() {
           <div className="flex-grow h-full shadow shadow-black rounded overflow-hidden">
             <img
               className="w-full h-full object-cover shadow shadow-black"
-              src={homes[imageIdx]}
+              src={`${cdn}/about/corevalues_cv${imageIdx}.jpg`}
             />
           </div>
         </TransitionClient>
@@ -111,7 +111,7 @@ export default function About() {
                 className="w-full h-full object-cover"
               />
               <img
-                src={homes[5]}
+                src={`${cdn}/about/mission.jpg`}
                 alt=""
                 className="absolute inset-0 w-full h-full object-cover"
                 style={{ mixBlendMode: "screen" }}
@@ -132,7 +132,7 @@ export default function About() {
                 className="w-full h-full object-cover"
               />
               <img
-                src={homes[13]}
+                src={`${cdn}/about/vision.jpg`}
                 alt=""
                 className="absolute inset-0 w-full h-full object-cover"
                 style={{ mixBlendMode: "screen" }}

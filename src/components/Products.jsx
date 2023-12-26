@@ -1,8 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { productImages, products } from "../assets/products";
 import { TransitionClient } from "../lib/TransitionClient";
-import { homes } from "../assets/images/apartments/apartments";
-import { randomInteger } from "../lib/functions";
 
 export default function Products() {
   const linearG = "bg-gradient-to-tr from-amber-950 via-amber-600 to-amber-950";
@@ -13,7 +11,11 @@ export default function Products() {
           <div key={index}>
             <div className="p-4 duration-500">
               <TransitionClient origin="right" transitionDuration={500}>
-                <div className={`text-4xl font-extrabold p-4 ${linearG} bg-clip-text text-transparent w-max`}>{product}</div>
+                <div
+                  className={`text-4xl font-extrabold p-4 ${linearG} bg-clip-text text-transparent w-max`}
+                >
+                  {product}
+                </div>
               </TransitionClient>
               <div>
                 {Object.keys(products[product]).map((prod, idx) => (

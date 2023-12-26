@@ -23,7 +23,7 @@ export default function App() {
 
   return (
     <div className="text-gray-800">
-      {launching ? (
+      {!launching ? (
         <Launching />
       ) : (
         <div>

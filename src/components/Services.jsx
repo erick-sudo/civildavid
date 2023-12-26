@@ -2,7 +2,6 @@ import React from "react";
 import { TransitionClient } from "../lib/TransitionClient";
 import { serviceImages, services } from "../assets/services";
 import Cube from "./Cube";
-import { homes } from "../assets/images/apartments/apartments";
 import { randomInteger } from "../lib/functions";
 import Loop from "../lib/Loop";
 
@@ -110,23 +109,21 @@ export default function Services() {
                     transitionDuration={500}
                   >
                     <VisualHost {...randomComponent.props}>
-                      {new Array(serviceImages[service.title].length)
-                        .fill(0)
-                        .map((i, idx) =>
-                          ![].includes(idx) ? (
-                            <div
-                              key={idx}
-                              className={`${randomComponent.childClassName}`}
-                            >
-                              <img
-                                className="h-full w-full object-cover"
-                                src={serviceImages[service.title][idx]}
-                              />
-                            </div>
-                          ) : (
-                            <div key={idx}></div>
-                          )
-                        )}
+                      {serviceImages[service.title].map((i, idx) =>
+                        ![].includes(idx) ? (
+                          <div
+                            key={idx}
+                            className={`${randomComponent.childClassName}`}
+                          >
+                            <img
+                              className="h-full w-full object-cover"
+                              src={i}
+                            />
+                          </div>
+                        ) : (
+                          <div key={idx}></div>
+                        )
+                      )}
                     </VisualHost>
                   </TransitionClient>
                 </div>

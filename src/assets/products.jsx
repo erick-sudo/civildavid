@@ -1,3 +1,5 @@
+import { cdn } from "./cdn";
+
 export const products = {
   "Pergolas and Gazebos": {
     "Transforming your vision into architectural wonders":
@@ -45,45 +47,30 @@ export const products = {
 
 export const productImages = {
   "Pergolas and Gazebos": [
-    "http://localhost:7000/gazebos/h1.jpg",
-    "http://localhost:7000/gazebos/h2.jpg",
-    "http://localhost:7000/gazebos/h3.jpg",
-    "http://localhost:7000/gazebos/h4.jpg",
-    "http://localhost:7000/gazebos/h5.jpg",
+    `${cdn}/products/pergolas_and_gazebos/h1.jpg`,
+    `${cdn}/products/pergolas_and_gazebos/h2.jpg`,
+    `${cdn}/products/pergolas_and_gazebos/h3.jpg`,
   ],
   "Stairs and Railings": [
-    "http://localhost:7000/gazebos/h1.jpg",
-    "http://localhost:7000/gazebos/h2.jpg",
-    "http://localhost:7000/gazebos/h3.jpg",
-    "http://localhost:7000/gazebos/h4.jpg",
-    "http://localhost:7000/gazebos/h5.jpg",
+    `${cdn}/products/stairs_and_railings/istockphoto-175409385-612x612.jpg`,
+    `${cdn}/products/stairs_and_railings/istockphoto-876233572-612x612.jpg`,
+    `${cdn}/products/stairs_and_railings/istockphoto-942809768-612x612.jpg`,
   ],
   "Porches and Decks": [
-    "http://localhost:7000/gazebos/h1.jpg",
-    "http://localhost:7000/gazebos/h2.jpg",
-    "http://localhost:7000/gazebos/h3.jpg",
-    "http://localhost:7000/gazebos/h4.jpg",
-    "http://localhost:7000/gazebos/h5.jpg",
+    `${cdn}/products/porches_and_decks/istockphoto-1073903086-612x612.jpg`,
+    `${cdn}/products/porches_and_decks/istockphoto-177102515-612x612.jpg`,
+    `${cdn}/products/porches_and_decks/istockphoto-912332782-612x612.jpg`,
   ],
   "Outdoor Kitchens and Dining Spaces": [
-    "http://localhost:7000/gazebos/h1.jpg",
-    "http://localhost:7000/gazebos/h2.jpg",
-    "http://localhost:7000/gazebos/h3.jpg",
-    "http://localhost:7000/gazebos/h4.jpg",
-    "http://localhost:7000/gazebos/h5.jpg",
+    `${cdn}/products/outdoor_kitchens_and_dining_spaces/istockphoto-1214041153-612x612.jpg`,
+    `${cdn}/products/outdoor_kitchens_and_dining_spaces/istockphoto-1278608040-612x612.jpg`,
   ],
   "Landscape Design and Lighting": [
-    "http://localhost:7000/gazebos/h1.jpg",
-    "http://localhost:7000/gazebos/h2.jpg",
-    "http://localhost:7000/gazebos/h3.jpg",
-    "http://localhost:7000/gazebos/h4.jpg",
-    "http://localhost:7000/gazebos/h5.jpg",
+    `${cdn}/products/landscape_design_and_lighting/istockphoto-124000682-612x612.jpg`,
+    `${cdn}/products/landscape_design_and_lighting/istockphoto-516395222-612x612.jpg`,
   ],
   "Water Features and Pools": [
-    "http://localhost:7000/gazebos/h1.jpg",
-    "http://localhost:7000/gazebos/h2.jpg",
-    "http://localhost:7000/gazebos/h3.jpg",
-    "http://localhost:7000/gazebos/h4.jpg",
-    "http://localhost:7000/gazebos/h5.jpg",
+    `${cdn}/products/water_features_and_pools/istockphoto-1196211289-612x612.jpg`,
+    `${cdn}/products/water_features_and_pools/istockphoto-1364656744-612x612.jpg`,
   ],
 };
