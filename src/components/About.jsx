@@ -62,7 +62,7 @@ export default function About() {
           origin={index % 2 === 0 ? "right" : "left"}
           transitionDuration={1000}
         >
-          <h2 className="px-4 py-2 text-2xl">{coreValues[value]}</h2>
+          <h2 className="px-4 py-2">{coreValues[value]}</h2>
         </TransitionClient>
       </div>,
       <div className="min-h-[25vh] flex-grow flex">
@@ -89,20 +89,20 @@ export default function About() {
       {/* Mission */}
       <div className="grid gap-8 md:grid-cols-2 container mx-auto">
         <div className="self-center">
-          <TransitionClient transitionDuration={1000}>
+          <TransitionClient transitionDuration={500}>
             <h1
               className={`text-5xl w-max my-4 ${linearG} bg-clip-text text-transparent`}
             >
               Mission
             </h1>
           </TransitionClient>
-          <TransitionClient origin="right" transitionDuration={1000}>
-            <div className="px-4 py-2 text-2xl lg:text-3xl max-w-lg text-justify">
+          <TransitionClient origin="right" transitionDuration={500}>
+            <div className="px-4 py-2 max-w-lg">
               {mission}
             </div>
           </TransitionClient>
         </div>
-        <TransitionClient className="flex" transitionDuration={1000}>
+        <TransitionClient className="flex" transitionDuration={500}>
           <div className="flex max-w-lg h-full">
             <div className="relative flex-grow bg-white">
               <img
@@ -123,7 +123,7 @@ export default function About() {
 
       {/* Vision */}
       <div className="grid gap-8 md:grid-cols-2 container mx-auto">
-        <TransitionClient className="flex" transitionDuration={1000}>
+        <TransitionClient className="flex" transitionDuration={500}>
           <div className="flex max-w-lg h-full">
             <div className="relative flex-grow bg-white">
               <img
@@ -149,7 +149,7 @@ export default function About() {
             </h1>
           </TransitionClient>
           <TransitionClient origin="right" transitionDuration={1000}>
-            <div className="px-4 py-2 text-2xl lg:text-3xl max-w-lg text-justify">
+            <div className="px-4 py-2 max-w-lg text-justify">
               {vision}
             </div>
           </TransitionClient>

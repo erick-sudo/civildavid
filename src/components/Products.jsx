@@ -12,7 +12,7 @@ export default function Products() {
             <div className="p-4 duration-500">
               <TransitionClient origin="right" transitionDuration={500}>
                 <div
-                  className={`text-4xl font-extrabold p-4 ${linearG} bg-clip-text text-transparent w-max`}
+                  className={`text-4xl font-extrabold p-4 ${linearG} bg-clip-text text-transparent`}
                 >
                   {product}
                 </div>
@@ -29,11 +29,11 @@ export default function Products() {
                   >
                     <TransitionClient
                       origin="bottom"
-                      transitionDuration={2000}
+                      transitionDuration={500}
                       className="md:w-1/2 m-2 h-[40vh]"
                       contentClassName="flex flex-grow"
                     >
-                      <div className="m-4 shadow shadow-black rounded-lg overflow-hidden flex-grow">
+                      <div className="m-4 shadow shadow-black flex-grow">
                         <img
                           className="h-full w-full object-cover"
                           src={productImages[product][idx]}
@@ -42,7 +42,7 @@ export default function Products() {
                     </TransitionClient>
                     <div className="md:w-1/2 self-center">
                       <TransitionClient
-                        transitionDuration={1000}
+                        transitionDuration={500}
                         origin="right"
                         className=""
                       >
@@ -51,7 +51,7 @@ export default function Products() {
 
                       <TransitionClient
                         className="px-2 py-4"
-                        transitionDuration={1000}
+                        transitionDuration={500}
                       >
                         <div className=" mx-2 mb-12 mt-4 px-4 py-8 rounded-xl">
                           <div className="max-w-sm font-bold text-gray-900">

@@ -34,7 +34,7 @@
 }
 
 .anim-expand-y {
-    animation: 1000ms expand_h linear;
+    animation: 500ms expand_h linear;
 }
 
 
@@ -59,11 +59,11 @@
 }
 
 .anim-bounce-from-r {
-    animation: 2000ms bounce_from_right ease-out;
+    animation: 500ms bounce_from_right ease-out;
 }
 
 .anim-bounce-from-b {
-    animation: 2000ms bounce_from_bottom ease-out;
+    animation: 500ms bounce_from_bottom ease-out;
     ;
 }
 

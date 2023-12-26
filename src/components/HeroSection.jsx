@@ -6,30 +6,26 @@ export default function HeroSection() {
   const linearG = "bg-gradient-to-tr from-amber-700 via-gray-800 to-amber-700";
 
   return (
-    <div className="relative m-6 rounded overflow-hidden shadow shadow-black">
-      <div className="absolute -z-20 inset-0">
-        <img className="w-full h-full object-cover" src={`${cdn}/hero_section/hero1.jpg`} />
-      </div>
-      <div className="absolute bg-white/50 inset-0 -z-10"></div>
-      <div className="pt-[3em] z-20">
-        <TransitionClient transitionDuration={1000}>
+    <div className="relative grid lg:grid-cols-2 overflow-hidden">
+      <div className="pt-[3em] z-20 flex flex-col justify-center">
+        <TransitionClient transitionDuration={200}>
           <div
-            className={`w-max text-5xl md:text-6xl lg:text-7xl xl:text-8xl py-4 px-4 md:px-6 lg:px-12 xl:px-24 font-extrabold ${linearG} bg-clip-text text-transparent`}
+            className={`p-4 text-5xl md:text-6xl gap-12 lg:text-7xl xl:text-8xl font-extrabold ${linearG} bg-clip-text text-transparent`}
           >
             CIVIL DAVID
           </div>
         </TransitionClient>
-        <TransitionClient transitionDuration={1000} origin="right">
+        <TransitionClient transitionDuration={200} origin="right">
           <div
-            className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl py-4 px-4 md:px-6 lg:px-12 xl:px-24 font-bold ${linearG} bg-clip-text text-transparent`}
+            className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl p-4 font-bold ${linearG} bg-clip-text text-transparent`}
           >
             Designers & Company
           </div>
         </TransitionClient>
-        <div className="px-12 py-24 text-3xl">
-          <TransitionClient transitionDuration={1000}>
+        <div className="mx-2 my-24 lg:mx-12 lg:my-24 bg-white">
+          <TransitionClient transitionDuration={200}>
             <div
-              className={`max-w-6xl ${linearG} bg-clip-text text-transparent`}
+              className={`max-w-6xl ${linearG} bg-clip-text p-2 text-transparent`}
             >
               As industry leaders, we specialize in transforming concepts into
               reality, combining cutting-edge construction techniques with
@@ -40,6 +36,14 @@ export default function HeroSection() {
               unparalleled excellence.
             </div>
           </TransitionClient>
+        </div>
+      </div>
+      <div>
+        <div className="m-2 shadow shadow-black">
+          <img
+            className="h-full w-full object-cover"
+            src={`${cdn}/hero_section/hero1.jpg`}
+          />
         </div>
       </div>
     </div>

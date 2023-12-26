@@ -19,7 +19,7 @@ export default function Services() {
         time: 10000,
         style: { animation: `20s turn linear infinite` },
       },
-      childClassName: "border-2 flex-grow border-amber-950",
+      childClassName: "flex-grow",
     },
     {
       component: Loop,
@@ -32,7 +32,7 @@ export default function Services() {
         spacing: 5,
         showNavigators: false,
       },
-      childClassName: "shadow shadow-black h-[20vh] rounded-xl overflow-hidden",
+      childClassName: "shadow shadow-black h-[20vh]",
     },
     {
       component: Loop,
@@ -47,7 +47,7 @@ export default function Services() {
         showNavigators: false,
       },
       childClassName:
-        "h-[20vh] max-w-lg shadow shadow-black rounded-xl overflow-hidden",
+        "h-[20vh] max-w-lg shadow shadow-black",
     },
   ];
 
@@ -63,21 +63,21 @@ export default function Services() {
           return (
             <div key={index}>
               <div
-                className={`m-4 p-4 flex gap-y-12 ${
+                className={`m-2 p-2 flex gap-y-12 ${
                   index % 2 === 0 ? "flex-col" : "flex-col-reverse"
                 } ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
               >
                 <div
-                  className={`md:w-1/2 lg:w-1/3 self-center px-4 ${
+                  className={`md:w-1/2 lg:w-1/3 self-center ${
                     index % 2 !== 0 && "r-to-l"
                   }`}
                 >
                   <div className={`${index % 2 === 0 ? "flex" : "flex rtl"}`}>
                     <div className="grid gap-2">
-                      <div className={`p-1 ${linearG} rounded`}></div>
-                      <div className={`p-1 ${linearG} rounded`}></div>
-                      <div className={`p-1 ${linearG} rounded`}></div>
-                      <div className={`p-1 ${linearG} rounded`}></div>
+                      <div className={`p-[2px] ${linearG} rounded`}></div>
+                      <div className={`p-[2px] ${linearG} rounded`}></div>
+                      <div className={`p-[2px] ${linearG} rounded`}></div>
+                      <div className={`p-[2px] ${linearG} rounded`}></div>
                     </div>
                     <div className="p-2">
                       <div className="lg:hidden">
@@ -101,7 +101,7 @@ export default function Services() {
                   </div>
                 </div>
                 <div
-                  className={`w-full md:w-1/2 lg:w-1/3 p-4 border border-dashed border-amber-600 rounded-xl h-max self-center`}
+                  className={`w-full md:w-1/2 lg:w-1/3 p-4 border border-dashed border-amber-600 h-max self-center`}
                 >
                   <TransitionClient
                     className={`${VisualHost === Cube && "py-12"}`}

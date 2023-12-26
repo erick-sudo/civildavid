@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Pager from "../lib/Pager";
 import { StrokeText } from "../lib/StrokeText";
 import Loop from "../lib/Loop";
@@ -40,19 +40,17 @@ export default function Home() {
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="">
             <Pager
-              padding={20}
+              padding={0}
               autoPlay={{
-                play: true,
+                play: false,
                 interval: 10000,
               }}
-              slidesClassName=""
+              slidesClassName="flex"
               orientation="vertical"
               contentClassName=""
               className="rounded-none"
               arrows={{
                 showArrows: false,
-                arrowsClassName:
-                  "bg-amber-700/50 h-8 w-8 rounded-full text-white flex items-center justify-center shadow shadow-black hover:bg-amber-700 hover:scale-125 duration-300",
               }}
               indicators={{
                 showIndicators: true,
@@ -63,20 +61,22 @@ export default function Home() {
             >
               {services.map((service, index) => (
                 <div
-                  className="group grid gap-12 p-4 rounded-3xl items-start h-[70vh] overflow-hidden relative border"
+                  className="group flex flex-col justify-center gap-12 items-start flex-grow border border-amber-700 p-2 overflow-hidden relative"
                   key={index}
                 >
-                  <div className="rounded-3xl overflow-hidden absolute inset-0 -z-10">
+                  <div className="absolute inset-0 -z-10">
                     <img
-                      className="w-full h-full object-cover rounded-3xl group-hover:scale-150 duration-500"
+                      className="w-full h-full object-cover group-hover:scale-150 duration-500"
                       src={serviceImages[service.title][0]}
                     />
                   </div>
-                  <div className="absolute inset-6 bg-white opacity-75 blur-lg group-hover:blur-2xl duration-300"></div>
-                  <div className="text-3xl lg:text-4xl xl:text-6xl h-48 flex m-4 mr-8 px-12 items-center font-extrabold shadow-inner shadow-black bg-gradient-to-tl from-amber-800 via-amber-600 to-amber-900 z-20 text-amber-600 shadow-text">
+                  <div className="absolute inset-6 -z-10 bg-white opacity-75 blur-lg group-hover:blur-2xl duration-300"></div>
+                  <div className="py-6 px-4 text-3xl flex items-center font-extrabold z-20 text-gray-800">
                     {service.title}
                   </div>
-                  <div className="m-4 text-white z-20 mx-12 bg-gradient-to-bl from-amber-800 via-amber-600 to-amber-900 max-w-lg py-4 px-12 rounded-3xl">
+                  <div
+                    className={`m-4 z-50 ${linearG} bg-clip-text text-transparent max-w-lg py-4 px-12 rounded-3xl`}
+                  >
                     {service.description}
                   </div>
 
@@ -89,22 +89,22 @@ export default function Home() {
               ))}
             </Pager>
 
-            <div className="grid gap-4 px-12">
-              <div className="flex items-center gap-2 text-3xl font-thin">
+            <div className="grid gap-4 my-8 px-12">
+              <div className="flex items-center gap-2 text-2xl font-thin">
                 <FontAwesomeIcon
                   className="text-amber-700"
                   icon={faArrowRightLong}
                 />
                 <div>Quality craftsmanship</div>
               </div>
-              <div className="flex items-center gap-2 text-3xl font-thin">
+              <div className="flex items-center gap-2 text-2xl font-thin">
                 <FontAwesomeIcon
                   className="text-amber-700"
                   icon={faArrowRightLong}
                 />
                 <div>Quality supervision</div>
               </div>
-              <div className="flex items-center gap-2 text-3xl font-thin">
+              <div className="flex items-center gap-2 text-2xl font-thin">
                 <FontAwesomeIcon
                   className="text-amber-700"
                   icon={faArrowRightLong}
@@ -125,10 +125,10 @@ export default function Home() {
             >
               {projs.slice(0, projs.length / 2).map((proj, i) => (
                 <div
-                  className="border p-4 group rounded-xl border-amber-800 overflow-hidden h-[40vh] flex justify-center items-center duration-300"
+                  className="group overflow-hidden h-[40vh] flex justify-center items-center duration-300"
                   key={i}
                 >
-                  <div className="flex-grow rounded-xl overflow-hidden shadow shadow-black self-stretch">
+                  <div className="flex-grow overflow-hidden shadow shadow-black self-stretch">
                     <img
                       className="w-full h-full object-cover group-hover:scale-125 duration-500"
                       src={projects[proj]["image"]}
@@ -163,10 +163,10 @@ export default function Home() {
             >
               {projs.slice(projs.length / 2).map((proj, i) => (
                 <div
-                  className="border p-4 group rounded-xl border-amber-800 overflow-hidden h-[40vh] flex justify-center items-center duration-300"
+                  className="group overflow-hidden h-[40vh] flex justify-center items-center duration-300"
                   key={i}
                 >
-                  <div className="flex-grow rounded-xl overflow-hidden shadow shadow-black self-stretch">
+                  <div className="flex-grow overflow-hidden shadow shadow-black self-stretch">
                     <img
                       className="w-full h-full object-cover group-hover:scale-125 duration-500"
                       src={projects[proj]["image"]}
@@ -212,10 +212,10 @@ export default function Home() {
               >
                 {projs.slice(0, projs.length / 2).map((proj, i) => (
                   <div
-                    className="border p-4 group rounded-xl border-amber-800 overflow-hidden h-[40vh] flex justify-center items-center duration-300"
+                    className="group overflow-hidden h-[40vh] flex justify-center items-center duration-300"
                     key={i}
                   >
-                    <div className="flex-grow rounded-xl overflow-hidden shadow shadow-black self-stretch">
+                    <div className="flex-grow overflow-hidden shadow shadow-black self-stretch">
                       <img
                         className="w-full h-full object-cover group-hover:scale-125 duration-500"
                         src={projects[proj]["image"]}
@@ -244,7 +244,7 @@ export default function Home() {
               {attractiveStatements.slice(0, 4).map((stmt, index) => (
                 <TransitionClient
                   origin="bottom"
-                  transitionDuration={1000}
+                  transitionDuration={400}
                   key={index}
                 >
                   <div
@@ -284,8 +284,6 @@ export default function Home() {
               className=" rounded-none"
               arrows={{
                 showArrows: false,
-                arrowsClassName:
-                  "bg-amber-700/50 h-8 w-8 rounded-full text-white flex items-center justify-center shadow shadow-black hover:bg-amber-700 hover:scale-125 duration-300",
               }}
               indicators={{
                 showIndicators: true,
@@ -295,34 +293,26 @@ export default function Home() {
               }}
             >
               {Object.keys(products).map((product, index) => (
-                <div
-                  className="relative rounded-3xl overflow-hidden shadow shadow-black"
-                  key={index}
-                >
-                  <div className="absolute blur-lg opacity-25 -z-10 bg-gradient-to-r from-amber-950 via-amber-700 to-amber-950 inset-0"></div>
-                  <div className="h-[50vh] z-10 overflow-hidden relative">
+                <div className="relative" key={index}>
+                  {/* <div className="absolute blur-lg opacity-25 -z-10 bg-gradient-to-r from-amber-950 via-amber-700 to-amber-950 inset-0"></div> */}
+                  <div className="h-[40vh] z-10 overflow-hidden relative shadow shadow-black">
                     <img
                       className="w-full h-full object-cover hover:scale-125 duration-500"
                       src={productImages[product][0]}
                     />
                   </div>
                   <button
-                    className={`${linearG} z-20 absolute right-10 px-4 py-2 top-[40vh] rounded-2xl shadow shadow-black hover:scale-125 duration-500`}
+                    className={`${linearG} z-20 m-4 right-10 px-4 py-2 top-[40vh] rounded-2xl shadow shadow-black hover:scale-125 duration-500`}
                   >
                     View More
                   </button>
-                  <div className="text-4xl m-4 mr-8 px-12 items-center font-extrabold z-20">
-                    <StrokeText
-                      fillColor="transparent"
-                      sz={2}
-                      strokeColor="rgb(180, 83, 9)"
-                      text={product}
-                    />
+                  <div className="text-2xl m-2 items-center font-extrabold z-20">
+                    {product}
                   </div>
-                  <div className="px-12 text-4xl text-gray-500">
+                  <div className="m-2 text-4xl text-gray-500">
                     <FontAwesomeIcon icon={faQuoteLeftAlt} />
                   </div>
-                  <div className="m-4 mt-0 text-black z-20 mx-12 py-4 px-12 rounded-2xl text-xl font-thin">
+                  <div className="m-4 text-black z-20 rounded-2xl font-thin">
                     {products[product][Object.keys(products[product])[0]]}
                   </div>
                 </div>
@@ -341,28 +331,28 @@ export default function Home() {
 
         <div>
           <div
-            className="m-4 grid gap-4 sm:grid-cols-2 md:grid-cols-3 justify-around p-4"
+            className="my-4 grid gap-x-4 gap-y-12 sm:grid-cols-2 md:grid-cols-3 justify-around p-4"
             direction={-1}
             speed={100}
           >
             {team.map((member, index) => (
               <TransitionClient
-                transitionDuration={1000}
+                transitionDuration={200}
                 key={index}
                 origin="bottom"
               >
                 <div className="flex flex-col items-center gap-4">
-                  <div className="h-48 w-48 rounded-full overflow-hidden shadow-md shadow-black">
+                  <div className="h-32 w-32 rounded-full overflow-hidden shadow-md shadow-black">
                     <img
                       className="w-full h-full object-cover"
                       src={teamMembersAvatars[member.name]}
                     />
                   </div>
-                  <div className="p-4 flex flex-col items-center">
+                  <div className="flex flex-col items-center">
                     <div className="text-amber-700 font-extrabold text-xl">
                       {member.name}
                     </div>
-                    <div className="text-gray-600 font-bold italic">
+                    <div className="text-gray-600 text-center font-bold italic">
                       {member.position}
                     </div>
                   </div>
@@ -394,22 +384,22 @@ export default function Home() {
               {testimonials.map((testimonial, index) => (
                 <div
                   key={index}
-                  className="group duration-500 w-[40vh] h-[50vh] hover:bg-white flex items-center justify-center bg-gray-100 rounded-xl spherical-shadow m"
+                  className="group duration-500 w-[40vh] hover:bg-white flex items-center justify-center rounded-xl"
                 >
-                  <div className="grid group-hover:bg-gradient-to-r  group-hover:from-amber-600 group-hover:via-amber-700 group-hover:to-amber-600 group-hover:duration-500  items-start border shadow-inner group-hover:shadow-black py-12 px-8 rounded-xl m-4">
+                  <div className="grid group-hover:bg-gradient-to-r  group-hover:from-amber-600 group-hover:via-amber-700 group-hover:to-amber-600 group-hover:duration-500  items-start group-hover:shadow-black py-12 px-8 rounded-xl m-4">
                     <div
                       className="grid group-hover:scale-105 duration-500"
                       key={index}
                     >
-                      <div className="flex items-end gap-4 px-6">
+                      <div className="flex flex-col items-center gap-4 px-6">
                         <div className="h-14 w-14">
                           <img
-                            className="h-full w-full object-cover rounded-full shadow-lg shadow-black"
+                            className="h-full w-full object-cover rounded-full shadow shadow-black"
                             src={testimonialImageAvatars[testimonial.name]}
                           />
                         </div>
 
-                        <div className="font-extrabold group-hover:text-black text-gray-700/75 border-b border-amber-800 italic">
+                        <div className="font-extrabold group-hover:text-black text-gray-700/75 italic">
                           {testimonial.name}
                         </div>
                       </div>
@@ -428,7 +418,7 @@ export default function Home() {
                           <FontAwesomeIcon icon={faQuoteRightAlt} />
                         </div>
                       </div>
-                      <div className="w-full border-b-8 border-double"></div>
+                      
                       <div className="px-4 flex relative">
                         {new Array(10).fill(0).map((i, j) => (
                           <span
@@ -451,11 +441,11 @@ export default function Home() {
             </Loop>
           </div>
 
-          <div className="m-4 self-end">
+          <div className="m-4 self-">
             <h5 className="px-12 pt-4 mx-auto text-3xl font-extrabold bg-clip-text text-transparent w-max bg-gradient-to-r from-amber-600 via-black to-amber-800">
               Reach out
             </h5>
-            <form className="mx-auto spherical-shadow grid gap-4 mt-6 mb-12 max-w-lg py-12 px-8 rounded-xl">
+            <form className="mx-auto grid gap-4 mt-6 mb-12 max-w-lg py-12 px-8 rounded-xl">
               <div className="flex items-stretch  overflow-hidden border rounded max-w-lg">
                 <div className="w-10 flex items-center justify-center border-r">
                   <FontAwesomeIcon icon={faUserCircle} />
@@ -501,10 +491,10 @@ export default function Home() {
         >
           {projs.slice(0, projs.length / 2).map((proj, i) => (
             <div
-              className="border p-4 group rounded-xl border-amber-800 overflow-hidden h-[40vh] flex justify-center items-center duration-300"
+              className="group h-[40vh] flex justify-center items-center duration-300"
               key={i}
             >
-              <div className="flex-grow rounded-xl overflow-hidden shadow shadow-black self-stretch">
+              <div className="flex-grow shadow shadow-black overflow-hidden self-stretch">
                 <img
                   className="w-full h-full object-cover group-hover:scale-125 duration-500"
                   src={projects[proj]["image"]}
