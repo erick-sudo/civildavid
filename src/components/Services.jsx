@@ -1,64 +1,86 @@
 import React from "react";
 import { TransitionClient } from "../lib/TransitionClient";
 import { serviceImages, services } from "../assets/services";
-import Cube from "./Cube";
-import { randomInteger } from "../lib/functions";
-import Loop from "../lib/Loop";
+import { Swiper, SwiperSlide } from "swiper/react";
+import {
+  EffectCards,
+  EffectCoverflow,
+  EffectCube,
+  FreeMode,
+  Mousewheel,
+  Pagination,
+} from "swiper/modules";
 
 export default function Services() {
   const linearG = "from-amber-600 via-amber-900 to-amber-500 bg-gradient-to-t";
 
-  const dirs = [-1, 1];
-
   const components = [
     {
-      component: Cube,
+      component: Swiper,
       props: {
-        facesClassName: "flex",
-        className: "h-48 mx-auto",
-        time: 10000,
-        style: { animation: `20s turn linear infinite` },
+        speed: 1000,
+        loop: true,
+        autoplay: { delay: 1000 },
+        initialSlide: 2,
+        pagination: {
+          clickable: true,
+        },
+        effect: "coverflow",
+        slidesPerView: 3,
+        depth: 200,
+        modules: [Pagination, EffectCoverflow, Mousewheel, FreeMode],
       },
-      childClassName: "flex-grow",
+      slideWrapper: SwiperSlide,
+      slideClassName: "shadow shadow-black h-[20vh] lg:h-[30vh] flex",
     },
     {
-      component: Loop,
+      component: Swiper,
       props: {
-        orientation: "horizontal",
-        slidesClassName: "w-[20vh]",
-        direction: dirs[randomInteger(0, 2)],
-        speed: 100,
-        padding: 0,
-        spacing: 5,
-        showNavigators: false,
+        speed: 1000,
+        loop: true,
+        autoplay: { delay: 1000 },
+        initialSlide: 2,
+        pagination: {
+          clickable: true,
+        },
+        effect: "cube",
+        slidesPerView: 3,
+        depth: 200,
+        modules: [Pagination, EffectCube, Mousewheel, FreeMode],
+        className: "h-[30vh]",
       },
-      childClassName: "shadow shadow-black h-[20vh]",
+      slideWrapper: SwiperSlide,
+      slideClassName: "flex shadow shadow-black",
     },
     {
-      component: Loop,
+      component: Swiper,
       props: {
-        orientation: "vertical",
-        slidesClassName: "",
-        className: "h-[40vh]",
-        direction: dirs[randomInteger(0, 2)],
-        speed: 100,
-        padding: 0,
-        spacing: 5,
-        showNavigators: false,
+        speed: 1000,
+        loop: true,
+        autoplay: { delay: 2000 },
+        initialSlide: 2,
+        pagination: {
+          clickable: true,
+        },
+        navigation: true,
+        effect: "cards",
+        modules: [Pagination, EffectCards, Mousewheel, FreeMode],
+        className: "h-[50vh] w-2/3",
       },
-      childClassName:
-        "h-[20vh] max-w-lg shadow shadow-black",
+      slideWrapper: SwiperSlide,
+      slideClassName: "flex-grow flex shadow shadow-black rounded-2xl",
     },
   ];
 
   return (
-    <div className="flex">
+    <div className="fle">
       <div className="flex-grow "></div>
       <div className="container mx-auto ">
         {services.map((service, index) => {
           const randomComponent = components[index % 3];
 
           const VisualHost = randomComponent.component;
+          const SlideHost = randomComponent.slideWrapper;
 
           return (
             <div key={index}>
@@ -103,29 +125,27 @@ export default function Services() {
                 <div
                   className={`w-full md:w-1/2 lg:w-1/3 p-4 border border-dashed border-amber-600 h-max self-center`}
                 >
-                  <TransitionClient
-                    className={`${VisualHost === Cube && "py-12"}`}
-                    origin="right"
-                    transitionDuration={500}
-                  >
-                    <VisualHost {...randomComponent.props}>
+                  <div>
+                    <VisualHost freeMode mousewheel {...randomComponent.props}>
                       {serviceImages[service.title].map((i, idx) =>
                         ![].includes(idx) ? (
-                          <div
+                          <SlideHost
                             key={idx}
-                            className={`${randomComponent.childClassName}`}
+                            className={`${randomComponent.slideClassName}`}
                           >
-                            <img
-                              className="h-full w-full object-cover"
-                              src={i}
-                            />
-                          </div>
+                            <div className="flex-grow">
+                              <img
+                                className="h-full w-full object-cover"
+                                src={i}
+                              />
+                            </div>
+                          </SlideHost>
                         ) : (
                           <div key={idx}></div>
                         )
                       )}
                     </VisualHost>
-                  </TransitionClient>
+                  </div>
                 </div>
                 <div className="hidden lg:block lg:w-1/3 border-b border-dashed border-amber-600 self-center">
                   <TransitionClient

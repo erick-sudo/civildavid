@@ -12,9 +12,40 @@ import { cdn } from "../assets/cdn";
 export default function NavigationBar({ tabs = [] }) {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const navBlurImage = `${cdn}/navbar/nav_blur.jpg`
+  const navBlurImage = `${cdn}/navbar/nav_blur.jpg`;
 
   const [showNav, setShowNav] = useState(false);
+
+  const contact = (
+    <div className="flex items-center gap-6">
+      <div className="flex items-center ">
+        <div className="h-12 text-amber-600 w-12 flex items-center justify-center text-3xl">
+          <span>
+            <FontAwesomeIcon icon={faPhone} />
+          </span>
+        </div>
+        <div className="">
+          <h4 className="text-amber-600 px-4">Call us</h4>
+          <h4 className="font-extrabold text-gray-800">+87-877-673</h4>
+        </div>
+      </div>
+      <div className="flex items-center ">
+        <div className="h-12 text-amber-600 w-12 flex items-center justify-center text-3xl">
+          <span>
+            <FontAwesomeIcon icon={faEnvelope} />
+          </span>
+        </div>
+        <div className="">
+          <h4 className="text-amber-600 px-4">Email us</h4>
+          <h4 className="font-extrabold text-gray-800">
+            <a href="mailto:info@gmail.com" title="Send mail">
+              info@gmail.com
+            </a>
+          </h4>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <div className="sticky top-0 z-40">
@@ -39,40 +70,14 @@ export default function NavigationBar({ tabs = [] }) {
             </button>
           ))}
         </div>
-        <div className="hidden lg:flex items-center gap-6 flex-grow">
-          <div className="flex items-center ">
-            <div className="h-12 text-amber-600 w-12 flex items-center justify-center text-3xl">
-              <span>
-                <FontAwesomeIcon icon={faPhone} />
-              </span>
-            </div>
-            <div className="">
-              <h4 className="text-amber-600 px-4">Call us</h4>
-              <h4 className="font-extrabold text-gray-800">+87-877-673</h4>
-            </div>
-          </div>
-          <div className="flex items-center ">
-            <div className="h-12 text-amber-600 w-12 flex items-center justify-center text-3xl">
-              <span>
-                <FontAwesomeIcon icon={faEnvelope} />
-              </span>
-            </div>
-            <div className="">
-              <h4 className="text-amber-600 px-4">Email us</h4>
-              <h4 className="font-extrabold text-gray-800">
-                <a href="mailto:info@gmail.com" title="Send mail">
-                  info@gmail.com
-                </a>
-              </h4>
-            </div>
-          </div>
-        </div>
+        <div className="hidden flex-grow lg:flex">{contact}</div>
       </div>
 
       {/* Small Screen [-md] */}
       <div className="md:hidden relative flex items-center">
+        <div className="flex-grow flex px-4 h-24 w-16">{contact}</div>
         {!showNav ? (
-          <div className="flex flex-grow justify-end">
+          <div className="">
             <button
               onClick={() => {
                 setShowNav(true);
