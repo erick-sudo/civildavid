@@ -150,7 +150,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="m-2">
+          <div className="m-2 lg:mx-10">
             <Swiper
               loop
               speed={1000}
@@ -293,7 +293,7 @@ export default function Home() {
       </div>
 
       {/* Products */}
-      <div className="">
+      <div className="lg:mx-10">
         <h4 className="px-12 pt-4 text-3xl font-extrabold">Our Products</h4>
         <h5 className="px-12 text-2xl font-thin">Guaranteed Satisfaction</h5>
         <div className="">
@@ -371,7 +371,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="m-2">
+          <div className="m-2 lg:mx-10">
             <Swiper
               speed={1000}
               freeMode
@@ -602,7 +602,7 @@ export default function Home() {
       </div>
 
       {/* More products */}
-      <div className="m-2">
+      <div className="m-2 lg:mx-10">
         <Swiper
           loop
           mousewheel
