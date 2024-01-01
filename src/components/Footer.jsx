@@ -7,8 +7,10 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { products } from "../assets/products";
+import { NavLink } from "react-router-dom";
 
 export default function Footer() {
+  
   const linearG = "bg-gradient-to-r from-amber-800 via-amber-600 to-amber-900";
 
   return (
@@ -63,7 +65,7 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 text-center md:text-left text-lg mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8 text-center md:text-left text-lg mt-8">
             <div className="col-span-1">
               <strong
                 className={`font-medium ${linearG} bg-clip-text text-transparent`}
@@ -117,13 +119,15 @@ export default function Footer() {
                     <div className={`text-amber-800 text-2xl`}>
                       <FontAwesomeIcon icon={faEnvelope} />
                     </div>
-                    <p className="text-white">contact@example.com</p>
+                    <NavLink to="mailto:cgranddesigners@gmail.com">
+                      cgranddesigners@gmail.com
+                    </NavLink>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className={`text-amber-800 text-2xl`}>
                       <FontAwesomeIcon icon={faPhone} />
                     </div>
-                    <p className="text-white">+1234567890</p>
+                    <NavLink to="tel:+254701742256">+254701742256</NavLink>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className={`text-amber-800 text-2xl`}>
@@ -134,15 +138,16 @@ export default function Footer() {
                 </nav>
               </div>
             </div>
+          </div>
 
-            <div className="col-span-1">
-              <strong
-                className={`font-medium ${linearG} bg-clip-text text-transparent`}
-              >
-                Location
-              </strong>
-              <div className="mt-4 ">
-                {/* <iframe
+          <div className="mt-12">
+            <strong
+              className={`font-medium ${linearG} bg-clip-text text-transparent`}
+            >
+              Location
+            </strong>
+            <div className="mt-4 ">
+              {/* <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.9645684044293!2d36.82194621432585!3d-1.2863898359937736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f18278c0e30ef%3A0xa3e1845113ef4b60!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2s!4v1622132022756!5m2!1sen!2s"
                   width="100%"
                   height="200"
@@ -150,7 +155,6 @@ export default function Footer() {
                   allowFullScreen=""
                   loading="lazy"
                 /> */}
-              </div>
             </div>
           </div>
 

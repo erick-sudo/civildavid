@@ -6,8 +6,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { cdn } from "../assets/cdn";
+import logo from "../assets/logo.jpg";
 
 export default function NavigationBar({ tabs = [] }) {
   const { pathname } = useLocation();
@@ -17,33 +18,37 @@ export default function NavigationBar({ tabs = [] }) {
   const [showNav, setShowNav] = useState(false);
 
   const contact = (
-    <div className="flex items-center gap-6">
-      <div className="flex items-center ">
-        <div className="h-12 text-amber-600 w-12 flex items-center justify-center text-3xl">
+    <div className="flex items-center gap-6 px-2 py-2 self-center">
+      <div className="">
+        <div className="text-black flex items-center gap-4">
           <span>
             <FontAwesomeIcon icon={faPhone} />
           </span>
+          <span className="text-black font-extrabold">Call us</span>
         </div>
-        <div className="">
-          <h4 className="text-amber-600 px-4">Call us</h4>
-          <h4 className="font-extrabold text-gray-800">+87-877-673</h4>
+        <div className="font-extrabold text-blue-900 text-sm">
+          <NavLink to="tel:+254701742256">+254701742256</NavLink>
         </div>
       </div>
-      <div className="flex items-center ">
-        <div className="h-12 text-amber-600 w-12 flex items-center justify-center text-3xl">
+      <div className="">
+        <div className="text-black flex items-center gap-4">
           <span>
             <FontAwesomeIcon icon={faEnvelope} />
           </span>
+          <span className="text-black font-extrabold">Email us</span>
         </div>
-        <div className="">
-          <h4 className="text-amber-600 px-4">Email us</h4>
-          <h4 className="font-extrabold text-gray-800">
-            <a href="mailto:info@gmail.com" title="Send mail">
-              info@gmail.com
-            </a>
-          </h4>
+        <div className="font-extrabold text-blue-900 text-sm">
+          <NavLink to="mailto:cgranddesigners@gmail.com">
+            cgranddesigners@gmail.com
+          </NavLink>
         </div>
       </div>
+    </div>
+  );
+
+  const logoDiv = (
+    <div className="h-12 w-12 m-2">
+      <img src={logo} />
     </div>
   );
 
@@ -55,6 +60,7 @@ export default function NavigationBar({ tabs = [] }) {
 
       {/* Larg Screen [md+] */}
       <div className="hidden md:flex gap-4 items-center border-amber-600/25 py-2">
+        {/* {logoDiv} */}
         <div className="flex flex-grow justify-center gap-4 font-bold relative">
           {tabs.map((tab, index) => (
             <button
